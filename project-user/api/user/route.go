@@ -1,6 +1,16 @@
 package user
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"log"
+	"test.com/project-user/router"
+)
+
+// 用户一来就注册
+func init() {
+	log.Println("init user router")
+	router.Register(&RouterUser{})
+}
 
 type RouterUser struct {
 }

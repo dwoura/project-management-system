@@ -2,7 +2,6 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"test.com/project-user/api/user"
 )
 
 // Router 接口
@@ -24,8 +23,19 @@ func (*RegisterRouter) Route(ro Router, r *gin.Engine) {
 	ro.Route(r)
 }
 
+var routers []Router
+
+func Register(ro ...Router) {
+	routers = append(routers, ro...)
+}
+
 func InitRouter(r *gin.Engine) {
-	rg := New()
+	//rg := New()
 	//为每个用户注册一个路由，但是每次要操作这一步，还是有点麻烦了
-	rg.Route(&user.RouterUser{}, r)
+	//rg.Route(&user.RouterUser{}, r)
+
+	//注册所有路由
+	for _, ro := range routers {
+		ro.Route(r)
+	}
 }
