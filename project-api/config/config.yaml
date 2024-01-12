@@ -1,0 +1,10 @@
+server:
+  name: "project-api"
+  addr: "127.0.0.1:80"
+zap:
+  debugFileName: "I:\\Code\\go\\dwoura\\project-management-system\\project-api\\logs\\debug\\project-debug.log"
+  infoFileName: "I:\\Code\\go\\dwoura\\project-management-system\\project-api\\logs\\info\\project-info.log"
+  warnFileName: "I:\\Code\\go\\dwoura\\project-management-system\\project-api\\logs\\error\\project-error.log"
+  maxSize: 500,
+  maxAge: 28,
+  MaxBackups: 3

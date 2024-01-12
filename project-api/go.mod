@@ -1,4 +1,4 @@
-module test.com/project-user
+module test.com/project-api
 
 go 1.21.1
 

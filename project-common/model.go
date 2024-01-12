@@ -4,9 +4,9 @@ package common
 
 type BusinessCode int //有特殊意义的数字要显式定义
 type Result struct {
-	Code BusinessCode
-	Msg  string
-	Data any
+	Code BusinessCode `json:"code"`
+	Msg  string       `json:"msg"`
+	Data any          `json:"data"`
 }
 
 func (r *Result) Success(data any) *Result {
