@@ -14,5 +14,5 @@ func InitRpcUserClient() {
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
-	loginServiceV1.NewLoginServiceClient(conn)
+	LoginServiceClient = loginServiceV1.NewLoginServiceClient(conn)
 }

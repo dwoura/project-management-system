@@ -4,3 +4,4 @@
 {"level":"INFO","time":"2024-01-12T13:33:38.336+0800","caller":"user/userHandler.go:41","msg":"短信平台调用成功，发送短信 INFO"}
 {"level":"DEBUG","time":"2024-01-12T13:33:38.337+0800","caller":"user/userHandler.go:42","msg":"短信平台调用成功，发送短信 debug"}
 {"level":"ERROR","time":"2024-01-12T13:33:38.338+0800","caller":"user/userHandler.go:43","msg":"短信平台调用成功，发送短信 error"}
+{"level":"INFO","time":"2024-01-12T17:05:37.795+0800","caller":"login_service.v1/login_service.go:38","msg":"短信平台调用成功，发送短信 INFO"}
