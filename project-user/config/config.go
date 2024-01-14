@@ -11,10 +11,11 @@ import (
 var C = InitConfig()
 
 type Config struct {
-	viper *viper.Viper
-	SC    *ServerConfig
-	RC    *RedisConfig
-	GC    *GrpcConfig
+	viper      *viper.Viper
+	SC         *ServerConfig
+	RC         *RedisConfig
+	GC         *GrpcConfig
+	EtcdConfig *EtcdConfig
 }
 
 type ServerConfig struct {
@@ -30,8 +31,14 @@ type RedisConfig struct {
 }
 
 type GrpcConfig struct {
-	Name string
-	Addr string
+	Name    string
+	Addr    string
+	Version string
+	Weight  int64
+}
+
+type EtcdConfig struct {
+	Addr []string
 }
 
 func InitConfig() *Config {
@@ -94,5 +101,18 @@ func (c *Config) ReadGrpcConfig() {
 	gc := &GrpcConfig{}
 	gc.Name = c.viper.GetString("grpc.name")
 	gc.Addr = c.viper.GetString("grpc.addr")
+	gc.Version = c.viper.GetString("grpc.version")
+	gc.Weight = c.viper.GetInt64("grpc.weight")
 	c.GC = gc
+}
+
+func (c *Config) ReadEtcdConfig() {
+	ec := &EtcdConfig{}
+	var addrs []string
+	//读取配置文件中数组的方法，从配置文件解析到实例变量
+	err := c.viper.UnmarshalKey("etcd.addrs", &addrs)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	ec.Addr = addrs
 }
